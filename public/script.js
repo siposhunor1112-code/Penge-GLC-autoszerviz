@@ -5,7 +5,7 @@
 /* ---------- Adatok: ezeket kell módosítani, ha valami változik ---------- */
 const SHOP = {
   name: "Penge GLC autószerviz",
-  // Ha phone null, a weboldal elrejti a hívás gombokat és az SMS-küldést.
+  // Ha phone null, a weboldal elrejti a hívás gombokat.
   phone: "+36 20 322 6614",
   address: "1131 Budapest, Dolmány u. 7.",
   // Nyitvatartás napokra bontva (0 = vasárnap … 6 = szombat); null = zárva
@@ -24,27 +24,31 @@ const SHOP = {
 
 // A tünetkereső sürgősségi szintjei (a tünetek maguk az index.html-ben vannak)
 const LEVELS = {
-  1: "Ráér – de tervezd be",
-  2: "Ne halogasd",
-  3: "Most azonnal – hívj minket",
+  1: "Ráér – tervezze be",
+  2: "Ne halogassa",
+  3: "Azonnal",
 };
 
-const DAY_NAMES = ["Vasárnap", "Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek", "Szombat"];
+const DAY_NAMES = ["vasárnap", "hétfő", "kedd", "szerda", "csütörtök", "péntek", "szombat"];
 
 const $ = (s, root = document) => root.querySelector(s);
 const $$ = (s, root = document) => [...root.querySelectorAll(s)];
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+const desktop = window.matchMedia("(min-width: 901px)");
 const phoneDigits = SHOP.phone ? SHOP.phone.replace(/[^\d+]/g, "") : null;
 
 document.documentElement.classList.replace("no-js", "js");
 
 /* ---------- Telefonszám mindenhol ---------- */
-$$("[data-phone-link]").forEach((a) => {
-  if (!SHOP.phone) { a.hidden = true; return; }
-  a.href = `tel:${phoneDigits}`;
-});
-$$("[data-phone-text]").forEach((el) => { if (SHOP.phone) el.textContent = SHOP.phone; });
+function applyPhone(root = document) {
+  $$("[data-phone-link]", root).forEach((a) => {
+    if (!SHOP.phone) { a.hidden = true; return; }
+    a.href = `tel:${phoneDigits}`;
+  });
+  $$("[data-phone-text]", root).forEach((el) => { if (SHOP.phone) el.textContent = SHOP.phone; });
+}
+applyPhone();
 $$("[data-year]").forEach((el) => { el.textContent = new Date().getFullYear(); });
 
 /* ---------- Nyitvatartás (budapesti idő szerint) ---------- */
@@ -76,9 +80,11 @@ function openStatus() {
   const today = SHOP.hours[day];
   if (today && minutes >= toMinutes(today[0]) && minutes < toMinutes(today[1])) {
     const left = toMinutes(today[1]) - minutes;
-    return left <= 45
-      ? { open: true, text: `Nyitva még ${left} percig`, short: `Még ${left} percig` }
-      : { open: true, text: `Most nyitva · ${pretty(today[1])}-ig`, short: `Nyitva · ${pretty(today[1])}-ig` };
+    return {
+      open: true,
+      text: left <= 45 ? `Nyitva még ${left} percig` : `Most nyitva · ${pretty(today[1])}-ig`,
+      short: left <= 45 ? `Még ${left} percig` : `Nyitva · ${pretty(today[1])}-ig`,
+    };
   }
   if (today && minutes < toMinutes(today[0])) {
     return { open: false, text: `Zárva · ma ${pretty(today[0])}-kor nyitunk`, short: `Ma ${pretty(today[0])}-kor nyit` };
@@ -86,8 +92,12 @@ function openStatus() {
   for (let i = 1; i <= 7; i++) {
     const d = (day + i) % 7;
     if (SHOP.hours[d]) {
-      const when = i === 1 ? "holnap" : DAY_NAMES[d].toLowerCase();
-      return { open: false, text: `Zárva · ${when} ${pretty(SHOP.hours[d][0])}-kor nyitunk`, short: "Zárva" };
+      const when = i === 1 ? "holnap" : DAY_NAMES[d];
+      return {
+        open: false,
+        text: `Zárva · ${when} ${pretty(SHOP.hours[d][0])}-kor nyitunk`,
+        short: "Zárva",
+      };
     }
   }
   return { open: false, text: "Átmenetileg zárva", short: "Zárva" };
@@ -102,16 +112,27 @@ function renderStatus() {
     const inNav = !!el.closest(".nav");
     $("[data-status-text]", el).textContent = inNav && narrow.matches ? s.short : s.text;
   });
-  const long = $("[data-status-long]");
-  if (long) long.textContent = s.open
-    ? `${s.text}. Hívj bátran – ha épp szerelünk, visszahívunk.`
-    : `${s.text}. Addig is összeállíthatod az üzenetet, és elküldheted SMS-ben.`;
   const { day } = budapestNow();
   $$("[data-hours] tr").forEach((tr) => tr.classList.toggle("is-today", Number(tr.dataset.day) === day));
 }
 renderStatus();
 setInterval(renderStatus, 30_000);
 narrow.addEventListener?.("change", renderStatus);
+
+/* ---------- Számítógépen: szám másolása (ott a tel: link sokszor nem működik) ---------- */
+const copyBtn = $("[data-copy-phone]");
+if (copyBtn && SHOP.phone && finePointer) {
+  copyBtn.hidden = false;
+  copyBtn.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(SHOP.phone);
+      copyBtn.textContent = "Kimásolva ✓";
+    } catch {
+      copyBtn.textContent = SHOP.phone;
+    }
+    setTimeout(() => { copyBtn.textContent = "Szám másolása"; }, 2400);
+  });
+}
 
 /* ---------- Fejléc és menü ---------- */
 const nav = $("[data-nav]");
@@ -125,17 +146,18 @@ function setMenu(open) {
 toggle.addEventListener("click", () => setMenu(!nav.classList.contains("is-open")));
 $$("#menu a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && nav.classList.contains("is-open")) { setMenu(false); toggle.focus(); } });
+desktop.addEventListener?.("change", () => setMenu(false));
 
 function onScroll() {
   const y = window.scrollY;
   nav.classList.toggle("is-scrolled", y > 10);
-  dock?.classList.toggle("is-shown", y > window.innerHeight * 0.5);
+  dock?.classList.toggle("is-shown", y > window.innerHeight * 0.6);
 }
 window.addEventListener("scroll", onScroll, { passive: true });
 onScroll();
 
 // Az aktuális szekció kiemelése a menüben
-const menuLinks = $$("#menu a[href^='#']").filter((a) => !a.classList.contains("nav__menu-cta"));
+const menuLinks = $$("#menu a[href^='#']");
 if ("IntersectionObserver" in window) {
   const spy = new IntersectionObserver((entries) => {
     entries.forEach((en) => {
@@ -147,12 +169,12 @@ if ("IntersectionObserver" in window) {
 }
 
 /* ---------- Nyitókép ---------- */
-$$(".hero [data-rise]").forEach((el, i) => el.style.setProperty("--d", `${0.12 + i * 0.1}s`));
+$$(".hero [data-rise]").forEach((el, i) => el.style.setProperty("--d", `${0.1 + i * 0.08}s`));
 requestAnimationFrame(() => requestAnimationFrame(() => document.documentElement.classList.add("is-ready")));
 
 const blueprint = $(".blueprint");
 const bpSvg = $("[data-blueprint]");
-setTimeout(() => blueprint?.classList.add("is-drawn"), reduced ? 0 : 450);
+setTimeout(() => blueprint?.classList.add("is-drawn"), reduced ? 0 : 500);
 if (reduced && bpSvg?.pauseAnimations) bpSvg.pauseAnimations();
 
 // A fény finoman követi az egeret
@@ -168,9 +190,42 @@ if (finePointer && !reduced && hero) {
     });
   });
 }
-// A tervrajz animációja csak akkor fut, amíg látszik
-if ("IntersectionObserver" in window && bpSvg?.pauseAnimations && !reduced) {
-  new IntersectionObserver(([en]) => (en.isIntersecting ? bpSvg.unpauseAnimations() : bpSvg.pauseAnimations())).observe(bpSvg);
+
+/* ---------- Az autó alkatrészei: kiemelés ---------- */
+const partBtns = $$("[data-part-btn]");
+const partNames = partBtns.map((b) => b.dataset.partBtn);
+let partIndex = 0;
+let partTimer = null;
+let heroVisible = true;
+
+function setPart(name) {
+  partIndex = Math.max(0, partNames.indexOf(name));
+  $$(".bp-part, .pin").forEach((el) => el.classList.toggle("is-active", el.dataset.part === name));
+  $$("[data-part-desc]").forEach((el) => el.classList.toggle("is-active", el.dataset.partDesc === name));
+  partBtns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.partBtn === name)));
+}
+function stopCycle() { clearInterval(partTimer); partTimer = null; }
+function startCycle() {
+  if (reduced || partTimer) return;
+  partTimer = setInterval(() => { if (heroVisible) setPart(partNames[(partIndex + 1) % partNames.length]); }, 3200);
+}
+if (partNames.length) {
+  setPart(partNames[0]);
+  // Magától végigmegy a részeken, amíg a látogató bele nem nyúl
+  setTimeout(startCycle, 2600);
+  let touched = false;
+  partBtns.forEach((b) => {
+    b.addEventListener("click", () => { touched = true; stopCycle(); setPart(b.dataset.partBtn); });
+    b.addEventListener("mouseenter", () => { if (finePointer) { stopCycle(); setPart(b.dataset.partBtn); } });
+    b.addEventListener("mouseleave", () => { if (finePointer && !touched) startCycle(); });
+    b.addEventListener("focus", () => { stopCycle(); setPart(b.dataset.partBtn); });
+  });
+  if ("IntersectionObserver" in window && blueprint) {
+    new IntersectionObserver(([en]) => {
+      heroVisible = en.isIntersecting;
+      if (bpSvg?.pauseAnimations && !reduced) (heroVisible ? bpSvg.unpauseAnimations() : bpSvg.pauseAnimations());
+    }).observe(blueprint);
+  }
 }
 
 /* ---------- Számlálók ---------- */
@@ -183,8 +238,7 @@ function countUp(el) {
   const dur = 1400;
   const step = (now) => {
     const t = Math.min(1, (now - start) / dur);
-    const eased = 1 - Math.pow(1 - t, 4);
-    el.textContent = fmt(target * eased);
+    el.textContent = fmt(target * (1 - Math.pow(1 - t, 4)));
     if (t < 1) requestAnimationFrame(step);
   };
   requestAnimationFrame(step);
@@ -230,144 +284,53 @@ if (steps) {
 }
 
 /* ---------- Tünetkereső ---------- */
+// Asztali gépen: bal oldalt a lista, jobbra a kiválasztott tünet (mindig egy van nyitva).
+// Telefonon: lenyíló lista, a tünet közvetlenül a címe alatt nyílik ki (be is csukható).
 const diag = $("[data-diag]");
-let chosenService = null;
-let chosenSymptom = null;
 if (diag) {
-  const chips = $("[data-diag-chips]", diag);
   const syms = $$(".sym", diag);
-  const meterBox = $("[data-diag-meter]", diag);
-  const meter = $(".meter", meterBox);
-  const levelText = $("[data-diag-level]", diag);
-  const bookBtn = $("[data-diag-book]", diag);
+  diag.style.setProperty("--rows", syms.length);
 
-  syms.forEach((sym, i) => {
-    const title = $(".sym__title", sym).textContent.trim();
-    const b = document.createElement("button");
-    b.type = "button";
-    b.className = "diag__chip";
-    b.id = `chip-${sym.id}`;
-    b.setAttribute("role", "tab");
-    b.setAttribute("aria-controls", sym.id);
-    b.textContent = title;
-    b.addEventListener("click", () => select(i, true));
-    b.addEventListener("keydown", (e) => {
-      const keys = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 };
-      if (!(e.key in keys)) return;
-      e.preventDefault();
-      const n = (i + keys[e.key] + syms.length) % syms.length;
-      select(n, true);
-      chips.children[n].focus();
-    });
-    chips.appendChild(b);
-    sym.setAttribute("role", "tabpanel");
-    sym.setAttribute("aria-labelledby", b.id);
+  syms.forEach((sym) => {
+    const body = $(".sym__body", sym);
+    const level = sym.dataset.level;
+    // Sürgősségi jelzés és hívás gomb minden tünethez
+    const lvl = document.createElement("p");
+    lvl.className = "sym__level";
+    lvl.innerHTML = `<span class="meter" aria-hidden="true"><span></span><span></span><span></span></span>${LEVELS[level] || ""}`;
+    const title = $(".sym__title", body);
+    title.after(lvl);
+    if (SHOP.phone) {
+      const call = document.createElement("a");
+      call.className = "btn btn--accent btn--sm sym__call";
+      call.href = `tel:${phoneDigits}`;
+      call.innerHTML = `<svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>${level === "3" ? "Hívjon most" : "Hívjon minket"}`;
+      body.appendChild(call);
+    }
   });
 
-  function select(i, user) {
-    syms.forEach((s, n) => s.classList.toggle("is-active", n === i));
-    $$(".diag__chip", chips).forEach((c, n) => {
-      c.setAttribute("aria-selected", String(n === i));
-      c.tabIndex = n === i ? 0 : -1;
+  function open(sym, user) {
+    const isOpen = sym.classList.contains("is-open");
+    if (isOpen && desktop.matches) return; // asztali gépen mindig marad egy nyitott
+    syms.forEach((s) => {
+      const on = s === sym && !isOpen;
+      s.classList.toggle("is-open", on);
+      $(".sym__toggle", s).setAttribute("aria-expanded", String(on));
     });
-    const level = syms[i].dataset.level;
-    meter.dataset.level = level;
-    levelText.textContent = LEVELS[level] || "";
-    chosenService = syms[i].dataset.service || null;
-    chosenSymptom = $(".sym__title", syms[i]).textContent.trim();
-    meterBox.hidden = false;
-    if (user && window.matchMedia("(max-width: 900px)").matches) {
-      chips.children[i].scrollIntoView({ block: "nearest", inline: "center", behavior: reduced ? "auto" : "smooth" });
+    // Telefonon a kinyitott tünet címe kerüljön a képernyő tetejére
+    if (user && !desktop.matches && !isOpen) {
+      requestAnimationFrame(() => {
+        const top = sym.getBoundingClientRect().top;
+        const navH = nav.getBoundingClientRect().height;
+        if (top < navH || top > window.innerHeight * 0.5) {
+          window.scrollBy({ top: top - navH - 12, behavior: reduced ? "auto" : "smooth" });
+        }
+      });
     }
   }
-  select(0, false);
-
-  // „Időpontot kérek erre”: előre kitölti az űrlapot
-  bookBtn.addEventListener("click", () => {
-    const form = $("[data-booking]");
-    if (!form) return;
-    $$("input[name=service]", form).forEach((c) => { if (c.value === chosenService) c.checked = true; });
-    const msg = $("#f-msg");
-    if (msg && !msg.value.trim()) msg.value = chosenSymptom || "";
-  });
-}
-
-/* ---------- Időpontkérés: üzenet összeállítása ---------- */
-const form = $("[data-booking]");
-if (form) {
-  const out = $("[data-booking-out]", form);
-  const preview = $("[data-booking-preview]", form);
-  const sms = $("[data-booking-sms]", form);
-  const copy = $("[data-booking-copy]", form);
-  const hint = $("[data-booking-hint]", form);
-
-  const buildText = () => {
-    const f = new FormData(form);
-    const services = f.getAll("service");
-    const lines = [
-      "Jó napot! Időpontot szeretnék kérni.",
-      `Név: ${f.get("name").trim()}`,
-      `Autó: ${f.get("car").trim()}`,
-    ];
-    if (services.length) lines.push(`Munka: ${services.join(", ")}`);
-    lines.push(`Mikor: ${f.get("when")}`);
-    const msg = f.get("msg").trim();
-    if (msg) lines.push(`Tapasztalat: ${msg}`);
-    lines.push("Köszönöm!");
-    return lines.join("\n");
-  };
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    let firstBad = null;
-    $$("[required]", form).forEach((el) => {
-      const bad = !el.value.trim();
-      el.setAttribute("aria-invalid", String(bad));
-      if (bad && !firstBad) firstBad = el;
-    });
-    if (firstBad) { firstBad.focus(); return; }
-
-    const text = buildText();
-    preview.textContent = text;
-    out.hidden = false;
-    if (SHOP.phone) {
-      // „?&body=” – így iPhone-on és Androidon is kitöltődik az üzenet
-      sms.href = `sms:${phoneDigits}?&body=${encodeURIComponent(text)}`;
-      sms.hidden = false;
-      hint.textContent = finePointer
-        ? `Számítógépről: másold ki a szöveget, és küldd el SMS-ben a ${SHOP.phone} számra – vagy hívj minket.`
-        : "Az SMS gomb megnyitja az üzenetküldőt a kész szöveggel – csak a Küldés gombot kell megnyomnod.";
-    } else {
-      sms.hidden = true;
-      hint.textContent = "";
-    }
-    out.scrollIntoView({ block: "nearest", behavior: reduced ? "auto" : "smooth" });
-  });
-
-  form.addEventListener("input", (e) => {
-    if (e.target.hasAttribute("required") && e.target.value.trim()) e.target.setAttribute("aria-invalid", "false");
-    if (!out.hidden) {
-      const text = buildText();
-      preview.textContent = text;
-      if (SHOP.phone) sms.href = `sms:${phoneDigits}?&body=${encodeURIComponent(text)}`;
-    }
-  });
-
-  copy.addEventListener("click", async () => {
-    const text = preview.textContent;
-    try {
-      await navigator.clipboard.writeText(text);
-      copy.textContent = "Kimásolva ✓";
-    } catch {
-      const range = document.createRange();
-      range.selectNodeContents(preview);
-      const sel = window.getSelection();
-      sel.removeAllRanges();
-      sel.addRange(range);
-      copy.textContent = "Kijelölve – másold ki";
-    }
-    setTimeout(() => { copy.textContent = "Szöveg másolása"; }, 2400);
-  });
+  syms.forEach((sym) => $(".sym__toggle", sym).addEventListener("click", () => open(sym, true)));
+  if (desktop.matches) open(syms[0], false);
+  desktop.addEventListener?.("change", (e) => { if (e.matches && !syms.some((s) => s.classList.contains("is-open"))) open(syms[0], false); });
 }
 
 /* ---------- Térkép kattintásra ---------- */

@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Penge GLC autószerviz – márkafüggetlen autószerviz a XIII. kerületben</title>
-  <meta name="description" content="Márkafüggetlen autószerviz Angyalföldön: átvizsgálás, motordiagnosztika, fék és futómű. Érthető árajánlat, csak a szükséges munka. 4,9 ★ a Google-on. 1131 Budapest, Dolmány u. 7. · +36 20 322 6614">
+  <title>Penge GLC autószerviz – márkafüggetlen autószerviz, Budapest XIII. kerület</title>
+  <meta name="description" content="Márkafüggetlen autószerviz Angyalföldön: átvizsgálás, motordiagnosztika, fék- és futóműjavítás, időszakos szerviz. Érthető árajánlat, csak a szükséges munka. 4,9 ★ a Google-on. Időpont telefonon: +36 20 322 6614 · 1131 Budapest, Dolmány u. 7.">
   <meta name="theme-color" content="#0a0b0c">
+  <meta name="format-detection" content="telephone=no">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Penge GLC autószerviz – Budapest XIII.">
-  <meta property="og:description" content="Penge munka. Márkafüggetlen autószerviz a Dolmány utcában – érthető árajánlat, csak a szükséges javítás.">
+  <meta property="og:description" content="Penge munka. Márkafüggetlen autószerviz a Dolmány utcában – érthető árajánlat, csak a szükséges javítás. Időpont telefonon: +36 20 322 6614.">
   <meta property="og:image" content="assets/og.jpg">
   <meta property="og:locale" content="hu_HU">
   <meta name="twitter:card" content="summary_large_image">
@@ -22,7 +23,7 @@
     "@context": "https://schema.org",
     "@type": "AutoRepair",
     "name": "Penge GLC autószerviz",
-    "description": "Márkafüggetlen autószerviz: átvizsgálás, motordiagnosztika, fék- és futóműjavítás.",
+    "description": "Márkafüggetlen autószerviz: átvizsgálás, motordiagnosztika, fék- és futóműjavítás, időszakos szerviz, műszaki vizsgára felkészítés.",
     "telephone": "+36203226614",
     "image": "assets/og.jpg",
     "address": {
@@ -56,10 +57,10 @@
       <a href="#tunetek">Tünetkereső</a>
       <a href="#velemenyek">Vélemények</a>
       <a href="#kapcsolat">Kapcsolat</a>
-      <a class="nav__menu-cta" href="#idopont">Időpontot kérek</a>
+      <a class="nav__menu-cta" href="tel:+36203226614" data-phone-link>Hívás: <span data-phone-text>+36 20 322 6614</span></a>
     </nav>
     <span class="status" data-status><span class="status__dot"></span><span data-status-text>H–P 8–18 · Szo 8–14</span></span>
-    <a class="btn btn--accent btn--sm nav__cta" href="#idopont">Időpont</a>
+    <a class="btn btn--accent btn--sm nav__cta" href="tel:+36203226614" data-phone-link><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg><span data-phone-text>+36 20 322 6614</span></a>
     <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menü">
       <span></span><span></span>
     </button>
@@ -73,82 +74,140 @@
       <div class="hero__grid" aria-hidden="true"></div>
 
       <div class="hero__inner wrap">
-        <p class="eyebrow hero__eyebrow" data-rise>Márkafüggetlen autószerviz · Budapest XIII.</p>
-        <h1 class="hero__title">
+        <p class="eyebrow hero__eyebrow" data-rise>Márkafüggetlen autószerviz · Budapest XIII., Angyalföld</p>
+        <h1 class="hero__title" aria-label="Penge munka">
           <span class="line" data-rise><span>Penge</span></span>
           <span class="line" data-rise><span>munka</span></span>
         </h1>
         <div class="hero__copy">
           <p class="hero__lead" data-rise>
-            Alapos átvizsgálás, érthető magyarázat, előre megbeszélt ár – és csak az a javítás, amire tényleg szükség van.
-            Angyalföldön, a Dolmány utcában.
+            Alapos hibakeresés, érthető magyarázat, előre egyeztetett ár. Csak azt javítjuk, amire az autójának valóban
+            szüksége van – bármilyen márkáról legyen szó.
           </p>
           <div class="hero__actions" data-rise>
-            <a class="btn btn--accent" href="#idopont">Időpontot kérek <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
-            <a class="btn btn--ghost" href="tel:+36203226614" data-phone-link><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg> <span data-phone-text>+36 20 322 6614</span></a>
+            <a class="btn btn--accent" href="tel:+36203226614" data-phone-link><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg><span data-phone-text>+36 20 322 6614</span></a>
+            <a class="btn btn--ghost" href="#tunetek">Mi lehet a hiba? <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
+          <p class="hero__note" data-rise>Időpontot telefonon egyeztetünk.</p>
         </div>
 
-        <!-- Az autó tervrajza kódból készül: nincs szükség fotóra -->
-        <div class="blueprint" aria-hidden="true">
+        <!-- Az autó tervrajza kódból készül: átlátszó rétegként mutatja, mit nézünk át.
+             A számozott jelölések (pin) és a lista (parts) data-part értéke köti össze őket. -->
+        <figure class="blueprint" data-rise>
           <div class="blueprint__stage">
-            <svg class="blueprint__svg" viewBox="0 0 1000 420" data-blueprint>
+            <svg class="blueprint__svg" viewBox="0 0 1000 440" aria-hidden="true" data-blueprint>
               <defs>
                 <linearGradient id="sweep" gradientUnits="userSpaceOnUse" x1="-300" y1="0" x2="0" y2="0">
                   <stop offset="0" stop-color="#ff3d2e" stop-opacity="0"/>
-                  <stop offset=".5" stop-color="#ff3d2e" stop-opacity=".95"/>
+                  <stop offset=".5" stop-color="#ff3d2e" stop-opacity=".9"/>
                   <stop offset="1" stop-color="#ff3d2e" stop-opacity="0"/>
-                  <animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="1600 0" dur="5.5s" begin="2.4s" repeatCount="indefinite"/>
+                  <animateTransform attributeName="gradientTransform" type="translate" from="0 0" to="1600 0" dur="6s" begin="2.6s" repeatCount="indefinite"/>
                 </linearGradient>
               </defs>
+
+              <!-- Talaj és a gumik szélessége -->
               <g class="bp-ground bp-draw">
-                <path d="M20 358 H980" pathLength="1"/>
-                <path d="M160 372 H300 M700 372 H840" pathLength="1" class="bp-dim"/>
+                <path pathLength="1" d="M20 380 H980"/>
+                <path pathLength="1" class="bp-dim" d="M169 394 H301 M699 394 H831"/>
               </g>
+
+              <!-- Karosszéria (SUV) -->
               <g class="bp-body bp-draw">
-                <path class="bp-outline" pathLength="1" d="M58 296 L52 252 Q50 222 88 212 L330 186 Q350 184 366 176 L470 114 Q480 108 500 107 L790 104 Q815 104 830 116 L910 170 Q938 180 940 214 L942 268 Q942 296 918 298 L840 298 A70 70 0 0 0 700 298 L300 298 A70 70 0 0 0 160 298 Z"/>
-                <path pathLength="1" d="M392 178 L478 124 Q486 119 500 119 L640 118 L640 178 Z"/>
-                <path pathLength="1" d="M654 178 L654 118 L782 117 Q800 117 812 128 L862 176 Z"/>
-                <path pathLength="1" d="M366 182 L905 180"/>
-                <path pathLength="1" d="M90 250 Q500 236 936 246"/>
-                <path pathLength="1" d="M500 180 L506 296 M650 180 L650 296 M800 180 L806 272"/>
-                <path pathLength="1" d="M560 200 H596 M708 200 H744"/>
-                <path pathLength="1" d="M72 224 L148 214 L146 228 L78 236 Z"/>
-                <path pathLength="1" d="M920 192 L940 196 L940 222 L916 218 Z"/>
-                <path pathLength="1" d="M384 180 L404 168 L420 168 L418 186 L392 188 Z"/>
+                <path pathLength="1" class="bp-outline" d="M62 306 L58 266 Q58 240 86 232 L332 202 Q354 199 370 190 L480 126 Q492 118 512 117 L798 114 Q834 114 856 130 L916 196 Q944 206 946 236 L948 296 Q948 322 926 324 L842.4 324 A78 78 0 1 0 687.6 324 L312.4 324 A78 78 0 1 0 157.6 324 L90 324 Q64 322 62 306 Z"/>
+                <path pathLength="1" d="M402 204 L488 140 Q496 134 512 133 L640 132 L640 204 Z"/>
+                <path pathLength="1" d="M654 204 L654 132 L790 130 Q814 130 830 144 L880 200 Z"/>
+                <path pathLength="1" d="M376 206 L914 202"/>
+                <path pathLength="1" d="M98 266 Q500 252 944 262"/>
+                <path pathLength="1" d="M330 312 L670 312"/>
+                <path pathLength="1" d="M494 206 Q488 264 498 324 M648 206 L648 324 M804 204 L800 244"/>
+                <path pathLength="1" d="M562 226 H598 M714 226 H750"/>
+                <path pathLength="1" d="M540 108 L780 106"/>
+                <path pathLength="1" d="M400 206 L418 190 L438 190 L436 212 Z"/>
+                <path pathLength="1" d="M68 244 L152 232 L150 246 L74 256 Z"/>
+                <path pathLength="1" d="M64 292 Q100 294 132 289"/>
+                <path pathLength="1" d="M922 216 L946 222 L946 250 L918 244 Z"/>
               </g>
+
+              <!-- Kerekek: gumi, felni, agy, küllők -->
               <g class="bp-wheels bp-draw">
-                <circle cx="230" cy="300" r="56" pathLength="1"/>
-                <circle cx="230" cy="300" r="36" pathLength="1"/>
-                <circle cx="230" cy="300" r="9" pathLength="1"/>
-                <circle cx="770" cy="300" r="56" pathLength="1"/>
-                <circle cx="770" cy="300" r="36" pathLength="1"/>
-                <circle cx="770" cy="300" r="9" pathLength="1"/>
-                <path pathLength="1" d="M230 264 V291 M230 309 V336 M194 300 H221 M239 300 H266 M770 264 V291 M770 309 V336 M734 300 H761 M779 300 H806"/>
-                <path class="bp-caliper" pathLength="1" d="M198 272 A40 40 0 0 1 222 261"/>
+                <circle pathLength="1" cx="235" cy="314" r="66"/>
+                <circle pathLength="1" cx="235" cy="314" r="46"/>
+                <circle pathLength="1" cx="235" cy="314" r="10"/>
+                <path pathLength="1" d="M235 301 L235 271 M247.4 310 L275.9 300.7 M242.6 324.5 L260.3 348.8 M227.4 324.5 L209.7 348.8 M222.6 310 L194.1 300.7"/>
+                <circle pathLength="1" cx="765" cy="314" r="66"/>
+                <circle pathLength="1" cx="765" cy="314" r="46"/>
+                <circle pathLength="1" cx="765" cy="314" r="10"/>
+                <path pathLength="1" d="M765 301 L765 271 M777.4 310 L805.9 300.7 M772.6 324.5 L790.3 348.8 M757.4 324.5 L739.7 348.8 M752.6 310 L724.1 300.7"/>
               </g>
-              <path class="bp-sweep" d="M58 296 L52 252 Q50 222 88 212 L330 186 Q350 184 366 176 L470 114 Q480 108 500 107 L790 104 Q815 104 830 116 L910 170 Q938 180 940 214 L942 268 Q942 296 918 298 L840 298 A70 70 0 0 0 700 298 L300 298 A70 70 0 0 0 160 298 Z" stroke="url(#sweep)"/>
-              <g class="bp-leads bp-draw">
-                <path pathLength="1" d="M210 206 L150 120 H40"/>
-                <path pathLength="1" d="M440 160 L500 56 H640"/>
-                <path pathLength="1" d="M230 300 L300 404 H420"/>
-                <path pathLength="1" d="M770 344 L840 404 H970"/>
+
+              <!-- Átlátszó réteg: az alkatrészek, amiket átnézünk -->
+              <g class="bp-parts">
+                <g class="bp-part" data-part="motor">
+                  <path d="M108 238 L250 222 L252 234 L110 250 Z"/>
+                  <path d="M110 250 L252 234 L254 262 L114 276 Z"/>
+                  <path d="M130 244 L230 233"/>
+                </g>
+                <g class="bp-part" data-part="hutes">
+                  <path d="M70 262 H84 V314 H70 Z"/>
+                  <path d="M70 275 H84 M70 288 H84 M70 301 H84"/>
+                  <path d="M84 270 Q98 262 110 262"/>
+                </g>
+                <g class="bp-part" data-part="fek">
+                  <circle cx="235" cy="314" r="38"/>
+                  <path class="bp-caliper" d="M253 282.8 A36 36 0 0 1 268.8 301.7"/>
+                </g>
+                <g class="bp-part" data-part="futomu">
+                  <path d="M765 226 V240 M753 244 L777 250 L753 256 L777 262 L753 268 L777 274 L753 280 M765 280 V300"/>
+                  <path d="M698 322 L752 314"/>
+                </g>
+                <g class="bp-part" data-part="kipufogo">
+                  <path d="M300 336 H336 M388 336 H520 M600 337 H846 M920 340 H940"/>
+                  <path d="M336 328 H388 V344 H336 Z"/>
+                  <path d="M520 328 H600 V346 H520 Z"/>
+                  <path d="M846 326 H920 V348 H846 Z"/>
+                </g>
+                <g class="bp-part" data-part="diag">
+                  <path d="M382 212 Q430 208 474 216 L470 240 L404 244 Z"/>
+                  <path d="M430 250 H446 V258 H430 Z"/>
+                  <path d="M466 200 L480 236"/>
+                </g>
               </g>
-              <g class="bp-points">
-                <circle cx="210" cy="206" r="5"/>
-                <circle cx="230" cy="300" r="5"/>
-                <circle cx="770" cy="344" r="5"/>
-                <circle cx="440" cy="160" r="5"/>
-              </g>
+
+              <path class="bp-sweep" stroke="url(#sweep)" d="M62 306 L58 266 Q58 240 86 232 L332 202 Q354 199 370 190 L480 126 Q492 118 512 117 L798 114 Q834 114 856 130 L916 196 Q944 206 946 236 L948 296 Q948 322 926 324 L842.4 324 A78 78 0 1 0 687.6 324 L312.4 324 A78 78 0 1 0 157.6 324 L90 324 Q64 322 62 306 Z"/>
             </svg>
-            <div class="callouts">
-              <span class="callout" style="--x:4%;--y:28.6%">Motor</span>
-              <span class="callout" style="--x:50%;--y:13.3%">Diagnosztika</span>
-              <span class="callout" style="--x:30%;--y:96.2%">Fék</span>
-              <span class="callout" style="--x:84%;--y:96.2%">Futómű</span>
+
+            <!-- Számozott jelölések (a helyük a rajz szélességének / magasságának %-ában) -->
+            <div class="pins" aria-hidden="true">
+              <span class="pin" data-part="motor" style="--x:18.2%;--y:55.5%">1</span>
+              <span class="pin" data-part="hutes" style="--x:7.7%;--y:65.2%">2</span>
+              <span class="pin" data-part="fek" style="--x:26.3%;--y:66.1%">3</span>
+              <span class="pin" data-part="futomu" style="--x:76.5%;--y:58.6%">4</span>
+              <span class="pin" data-part="kipufogo" style="--x:88.3%;--y:76.6%">5</span>
+              <span class="pin" data-part="diag" style="--x:43.8%;--y:57.7%">6</span>
             </div>
           </div>
-        </div>
+
+          <figcaption class="parts">
+            <p class="parts__title">Amit egy átvizsgálásnál megnézünk</p>
+            <ol class="parts__list">
+              <li><button type="button" data-part-btn="motor" aria-pressed="false"><span class="parts__no">1</span>Motor</button></li>
+              <li><button type="button" data-part-btn="hutes" aria-pressed="false"><span class="parts__no">2</span>Hűtés</button></li>
+              <li><button type="button" data-part-btn="fek" aria-pressed="false"><span class="parts__no">3</span>Fékrendszer</button></li>
+              <li><button type="button" data-part-btn="futomu" aria-pressed="false"><span class="parts__no">4</span>Futómű</button></li>
+              <li><button type="button" data-part-btn="kipufogo" aria-pressed="false"><span class="parts__no">5</span>Kipufogó</button></li>
+              <li><button type="button" data-part-btn="diag" aria-pressed="false"><span class="parts__no">6</span>Diagnosztika</button></li>
+            </ol>
+            <!-- A leírások: a kiválasztott elemé látszik (JavaScript nélkül mind) -->
+            <div class="parts__descs" aria-live="polite">
+              <p data-part-desc="motor"><b>Motor:</b> gyújtás, befecskendezés, érzékelők, vezérlés és szivárgások ellenőrzése.</p>
+              <p data-part-desc="hutes"><b>Hűtés:</b> hűtő, vízpumpa, termosztát, csövek, és a hűtőfolyadék fagyáspontja.</p>
+              <p data-part-desc="fek"><b>Fékrendszer:</b> betétek és tárcsák vastagsága, féknyergek, fékcsövek, fékfolyadék.</p>
+              <p data-part-desc="futomu"><b>Futómű:</b> lengéscsillapítók, rugók, lengőkarok, gömbfejek, szilentek, kerékcsapágyak.</p>
+              <p data-part-desc="kipufogo"><b>Kipufogó:</b> katalizátor, dobok, tömítések és rögzítések – szivárgás, zörgés.</p>
+              <p data-part-desc="diag"><b>Diagnosztika:</b> hibakód-olvasás az OBD-csatlakozón, élő mérési adatok.</p>
+            </div>
+          </figcaption>
+        </figure>
       </div>
 
       <dl class="facts wrap">
@@ -158,7 +217,7 @@
         </div>
         <div class="fact" data-rise>
           <dt>Elismerés</dt>
-          <dd><b class="fact__word">Arany</b><small>Vállalkozás díj – a legjobban értékelt cégeknek</small></dd>
+          <dd><b class="fact__word">Arany</b><small>Vállalkozás díj a kiemelkedő értékelésekért</small></dd>
         </div>
         <div class="fact" data-rise>
           <dt>Nyitvatartás</dt>
@@ -178,7 +237,7 @@
           <p class="eyebrow"><span class="num">01</span> Szolgáltatások</p>
           <h2 class="h2">Minden márka.<br><em>Egy mérce.</em></h2>
           <p class="section__lead">Nem a típus számít, hanem a hozzáállás: minden autót ugyanazzal az alapossággal nézünk át,
-            legyen szó városi kisautóról vagy prémium SUV-ról.</p>
+            legyen szó városi kisautóról, családi kombiról vagy prémium SUV-ról.</p>
         </header>
 
         <div class="services">
@@ -186,37 +245,37 @@
             <svg class="svc__icon" viewBox="0 0 48 48" aria-hidden="true"><use href="#s-inspect"/></svg>
             <p class="svc__no">01</p>
             <h3>Teljes körű átvizsgálás</h3>
-            <p>Felemelt autó, tételes ellenőrzés az alvázig. Előre tudod, mire lesz szükség – és mire nem.</p>
+            <p>Emelőn, tételesen: fékek, futómű, gumik, folyadékok, szivárgások, kipufogó, világítás. A végén pontosan tudja, mi sürgős, és mi várhat.</p>
           </article>
           <article class="svc" data-reveal>
             <svg class="svc__icon" viewBox="0 0 48 48" aria-hidden="true"><use href="#s-engine"/></svg>
             <p class="svc__no">02</p>
-            <h3>Motor &amp; diagnosztika</h3>
-            <p>Hibakód-olvasás, hibakeresés és motorjavítás. Nem cserélgetünk találgatva: előbb megtaláljuk az okot.</p>
+            <h3>Motordiagnosztika &amp; javítás</h3>
+            <p>Hibakód-olvasás és élő mérési adatok alapján keressük a hibát – nem találgatva cserélünk alkatrészeket. Gyújtás, befecskendezés, érzékelők, szivárgások.</p>
           </article>
           <article class="svc" data-reveal>
             <svg class="svc__icon" viewBox="0 0 48 48" aria-hidden="true"><use href="#s-brake"/></svg>
             <p class="svc__no">03</p>
             <h3>Fékrendszer</h3>
-            <p>Betét, tárcsa, nyereg, fékfolyadék. Mert a biztonságon nem spórolunk – de feleslegesen sem cserélünk.</p>
+            <p>Betét- és tárcsacsere, féknyergek, fékcsövek, fékfolyadék-csere. A fékfolyadék idővel nedvességet vesz fel, ezért kétévente érdemes cserélni.</p>
           </article>
           <article class="svc" data-reveal>
             <svg class="svc__icon" viewBox="0 0 48 48" aria-hidden="true"><use href="#s-suspension"/></svg>
             <p class="svc__no">04</p>
             <h3>Futómű</h3>
-            <p>Kopogás, zörgés, húzó kormány: lengéscsillapító, lengőkar, szilentek, gömbfejek, stabilizátor.</p>
+            <p>Kopogás, zörgés, bizonytalan úttartás: lengéscsillapítók, rugók, lengőkarok, szilentek, gömbfejek, stabilizátor-pálcák, kerékcsapágyak.</p>
           </article>
           <article class="svc" data-reveal>
             <svg class="svc__icon" viewBox="0 0 48 48" aria-hidden="true"><use href="#s-oil"/></svg>
             <p class="svc__no">05</p>
             <h3>Időszakos szerviz</h3>
-            <p>Olaj- és szűrőcsere, folyadékok, ékszíj – a gyártói előírás szerint, megfelelő minőségű alkatrészekkel.</p>
+            <p>Olajcsere a gyártó által előírt specifikációjú olajjal, olaj-, levegő-, pollen- és üzemanyagszűrő, folyadékszintek ellenőrzése.</p>
           </article>
           <article class="svc" data-reveal>
             <svg class="svc__icon" viewBox="0 0 48 48" aria-hidden="true"><use href="#s-check"/></svg>
             <p class="svc__no">06</p>
             <h3>Műszaki vizsgára felkészítés</h3>
-            <p>Előzetes átnézés, hogy ne a vizsgán derüljön ki a hiba. Motor-, fék- és futómű-ellenőrzés egy menetben.</p>
+            <p>Előzetes átvizsgálás a vizsga szempontjai szerint: fékhatás, futómű-holtjáték, világítás, károsanyag-kibocsátás, hibakódok. Így nem a vizsgán derül ki a hiba.</p>
           </article>
         </div>
       </div>
@@ -228,30 +287,30 @@
         <header class="section__head" data-reveal>
           <p class="eyebrow"><span class="num">02</span> Így dolgozunk</p>
           <h2 class="h2">Nincs meglepetés<br><em>a számlán.</em></h2>
-          <p class="section__lead">A vendégeink ezt emelik ki a legtöbbször: gyorsan fogadunk, alaposan megnézzük az autót,
-            és érthetően elmondjuk, mi a hiba, mi a teendő és mennyibe kerül.</p>
+          <p class="section__lead">A vendégeink ezt emelik ki a legtöbbször: gyorsan fogadjuk őket, alaposan megnézzük az autót,
+            és érthetően elmondjuk, mi a hiba, mi a teendő, és mennyibe kerül.</p>
         </header>
 
         <ol class="steps" data-steps>
           <li class="step" data-reveal>
             <span class="step__no">01</span>
-            <h3>Fogadás</h3>
-            <p>Hívsz vagy írsz, megbeszéljük az időpontot. Sürgős esetben – ha belefér – akár aznap.</p>
+            <h3>Telefonos egyeztetés</h3>
+            <p>Hívjon minket, és mondja el röviden, mit tapasztal. Megbeszéljük, mikor tudja hozni az autót. Sürgős esetben igyekszünk még aznap fogadni.</p>
           </li>
           <li class="step" data-reveal>
             <span class="step__no">02</span>
             <h3>Átvizsgálás</h3>
-            <p>Megkeressük a hiba valódi okát. Megmutatjuk, amit találtunk – akár a kopott alkatrészt is.</p>
+            <p>Megkeressük a hiba valódi okát – nem a tünetet kezeljük. Ha kell, hibakódot olvasunk és próbaútra visszük az autót.</p>
           </li>
           <li class="step" data-reveal>
             <span class="step__no">03</span>
             <h3>Érthető ajánlat</h3>
-            <p>Mi sürgős, mi várhat, mennyibe kerül. A jóváhagyásod nélkül nem nyúlunk semmihez.</p>
+            <p>Elmondjuk, mit találtunk, mi sürgős, mi várhat, és mennyibe kerül. A javítást csak az Ön jóváhagyása után kezdjük el.</p>
           </li>
           <li class="step" data-reveal>
             <span class="step__no">04</span>
             <h3>Javítás &amp; átadás</h3>
-            <p>Precíz munka, tartós eredmény. Átadáskor elmondjuk, mit csináltunk és mire figyelj.</p>
+            <p>Precíz munka, tartós eredmény. Átadáskor elmondjuk, mit cseréltünk, és mire figyeljen a következő időszakban.</p>
           </li>
         </ol>
       </div>
@@ -262,70 +321,126 @@
       <div class="wrap">
         <header class="section__head" data-reveal>
           <p class="eyebrow"><span class="num">03</span> Tünetkereső</p>
-          <h2 class="h2">Mit csinál<br><em>az autód?</em></h2>
-          <p class="section__lead">Válaszd ki, mit tapasztalsz – megmutatjuk, mi lehet a leggyakoribb ok, és mennyire sürgős.
-            Tájékoztató jellegű: a pontos választ az átvizsgálás adja.</p>
+          <h2 class="h2">Mit csinál<br><em>az autója?</em></h2>
+          <p class="section__lead">Válassza ki, mit tapasztal: megmutatjuk a leggyakoribb okokat, és azt, mennyire sürgős a dolog.
+            Tájékoztató jellegű – a pontos választ az átvizsgálás adja.</p>
+          <p class="legend" aria-hidden="true">
+            <span><i class="dot dot--1"></i>Ráér</span><span><i class="dot dot--2"></i>Ne halogassa</span><span><i class="dot dot--3"></i>Azonnal</span>
+          </p>
         </header>
 
+        <!-- Tünetek: új tünethez másoljon le egy <article class="sym"> blokkot (egyedi id-kkal).
+             data-level: 1 = ráér, 2 = ne halogassa, 3 = azonnal -->
         <div class="diag" data-diag>
-          <div class="diag__chips" role="tablist" aria-label="Tünetek" data-diag-chips></div>
+          <article class="sym" data-level="2">
+            <h3 class="sym__head"><button class="sym__toggle" type="button" aria-expanded="false" aria-controls="t1"><i class="dot dot--2"></i>Nyikorog, csikorog fékezéskor</button></h3>
+            <div class="sym__body" id="t1">
+              <p class="sym__title">Nyikorog, csikorog fékezéskor</p>
+              <p><b>Mi lehet?</b> Leggyakrabban elkopott fékbetét: sok betétben kopásjelző lemez van, ami éppen ilyen hanggal figyelmeztet. Ha nedves idő után az első néhány fékezésnél nyikorog, majd megszűnik, az csak a tárcsa felületi rozsdája – ez nem hiba.</p>
+              <p><b>Mit tegyen?</b> Ha a hang tartós, néhány napon belül hozza el. Ha fémes, csiszoló hangot hall, a betét már a tárcsát koptatja – ilyenkor ne halogassa.</p>
+            </div>
+          </article>
+          <article class="sym" data-level="3">
+            <h3 class="sym__head"><button class="sym__toggle" type="button" aria-expanded="false" aria-controls="t2"><i class="dot dot--3"></i>Puha a fékpedál, mélyre megy</button></h3>
+            <div class="sym__body" id="t2">
+              <p class="sym__title">Puha a fékpedál, mélyre megy</p>
+              <p><b>Mi lehet?</b> Levegő vagy nedvesség a fékrendszerben, fékfolyadék-szivárgás, ritkábban a főfékhenger hibája.</p>
+              <p><b>Mit tegyen?</b> Ez biztonsági kérdés: lehetőleg ne induljon el az autóval. Nézze meg a fékfolyadék szintjét a tartályon (MIN és MAX jelzés között kell lennie), és hívjon minket.</p>
+            </div>
+          </article>
+          <article class="sym" data-level="2">
+            <h3 class="sym__head"><button class="sym__toggle" type="button" aria-expanded="false" aria-controls="t3"><i class="dot dot--2"></i>Rezeg a kormány fékezéskor</button></h3>
+            <div class="sym__body" id="t3">
+              <p class="sym__title">Rezeg a kormány fékezéskor</p>
+              <p><b>Mi lehet?</b> Egyenetlenül kopott – közkeletű nevén „vetemedett” – féktárcsa. Ha a rezgés nem fékezéskor, hanem egy bizonyos sebesség fölött jelentkezik, inkább kiegyensúlyozatlan kerék vagy futóműhiba okozza.</p>
+              <p><b>Mit tegyen?</b> Hosszabb lehet a fékút, ezért néhány napon belül nézesse meg.</p>
+            </div>
+          </article>
+          <article class="sym" data-level="2">
+            <h3 class="sym__head"><button class="sym__toggle" type="button" aria-expanded="false" aria-controls="t4"><i class="dot dot--2"></i>Húz egy irányba az autó</button></h3>
+            <div class="sym__body" id="t4">
+              <p class="sym__title">Húz egy irányba az autó</p>
+              <p><b>Mi lehet?</b> Eltérő guminyomás, elállítódott futómű-geometria vagy kopott futóműelem. Ha csak fékezéskor húz, jellemzően beragadó féknyereg.</p>
+              <p><b>Mit tegyen?</b> Először a guminyomást ellenőrizze. Ha az rendben van, hozza el: a rossz geometria gyorsan és egyenetlenül koptatja a gumikat.</p>
+            </div>
+          </article>
+          <article class="sym" data-level="2">
+            <h3 class="sym__head"><button class="sym__toggle" type="button" aria-expanded="false" aria-controls="t5"><i class="dot dot--2"></i>Kopog, zörög úthibán</button></h3>
+            <div class="sym__body" id="t5">
+              <p class="sym__title">Kopog, zörög úthibán</p>
+              <p><b>Mi lehet?</b> Kopott stabilizátor-pálca vagy -gumi, lengőkar-szilent, gömbfej, lengéscsillapító vagy toronycsapágy.</p>
+              <p><b>Mit tegyen?</b> Ne várja meg, amíg rosszabb lesz: egy kilazult futóműelem a kormányzást és a fékezést is rontja.</p>
+            </div>
+          </article>
+          <article class="sym" data-level="2">
+            <h3 class="sym__head"><button class="sym__toggle" type="button" aria-expanded="false" aria-controls="t6"><i class="dot dot--2"></i>Búg, zúg menet közben</button></h3>
+            <div class="sym__body" id="t6">
+              <p class="sym__title">Búg, zúg menet közben</p>
+              <p><b>Mi lehet?</b> Ha a hang a sebességgel együtt erősödik, és kanyarban változik, az jellemzően kerékcsapágy-hiba. Egyenetlenül kopott gumi is okozhat hasonló zúgást.</p>
+              <p><b>Mit tegyen?</b> Nézesse meg: egy nagyon kopott kerékcsapágy felmelegedhet és beszorulhat.</p>
+            </div>
+          </article>
+          <article class="sym" data-level="2">
+            <h3 class="sym__head"><button class="sym__toggle" type="button" aria-expanded="false" aria-controls="t7"><i class="dot dot--2"></i>Kigyulladt a motorhiba-lámpa</button></h3>
+            <div class="sym__body" id="t7">
+              <p class="sym__title">Kigyulladt a motorhiba-lámpa</p>
+              <p><b>Mi lehet?</b> Sokféle ok: gyújtás, befecskendezés, valamelyik érzékelő, lambdaszonda, katalizátor vagy EGR-szelep. Hibakód-olvasással gyorsan leszűkíthető.</p>
+              <p><b>Mit tegyen?</b> Ha folyamatosan világít, és az autó rendesen megy, néhány napon belül hozza el. <b>Ha villog</b>, az gyújtáskimaradást jelez, ami a katalizátort is károsíthatja: kímélje a motort, és hívjon minket.</p>
+            </div>
+          </article>
+          <article class="sym" data-level="3">
+            <h3 class="sym__head"><button class="sym__toggle" type="button" aria-expanded="false" aria-controls="t8"><i class="dot dot--3"></i>Túlmelegszik a motor</button></h3>
+            <div class="sym__body" id="t8">
+              <p class="sym__title">Túlmelegszik a motor</p>
+              <p><b>Mi lehet?</b> Kevés hűtőfolyadék (szivárgás miatt), hibás termosztát, vízpumpa vagy hűtőventilátor, eltömődött hűtő.</p>
+              <p><b>Mit tegyen?</b> Álljon meg biztonságos helyen, és állítsa le a motort – túlmelegedve továbbhajtva a hengerfej is megsérülhet. Forró motornál ne nyissa ki a hűtőfolyadék-tartályt: a nyomás alatt lévő folyadék égési sérülést okozhat. Hívjon minket.</p>
+            </div>
+          </article>
+          <article class="sym" data-level="3">
+            <h3 class="sym__head"><button class="sym__toggle" type="button" aria-expanded="false" aria-controls="t9"><i class="dot dot--3"></i>Menet közben világít az akkumulátor-lámpa</button></h3>
+            <div class="sym__body" id="t9">
+              <p class="sym__title">Menet közben világít az akkumulátor-lámpa</p>
+              <p><b>Mi lehet?</b> Az akkumulátor nem töltődik: a generátor vagy a hosszbordás szíj hibás. Sok autóban ugyanez a szíj hajtja a vízpumpát is.</p>
+              <p><b>Mit tegyen?</b> Az autó az akkumulátor lemerülésével bármikor leállhat. Kapcsolja ki a felesleges fogyasztókat (ülésfűtés, klíma, rádió), figyelje a hőmérsékletet, és a legrövidebb úton jöjjön el hozzánk, vagy hívjon.</p>
+            </div>
+          </article>
+          <article class="sym" data-level="2">
+            <h3 class="sym__head"><button class="sym__toggle" type="button" aria-expanded="false" aria-controls="t10"><i class="dot dot--2"></i>Nehezen indul</button></h3>
+            <div class="sym__body" id="t10">
+              <p class="sym__title">Nehezen indul</p>
+              <p><b>Mi lehet?</b> Leggyakrabban gyengülő akkumulátor – hidegben előbb előjön. Ritkábban az önindító vagy a generátor; dízelnél az izzítógyertyák is.</p>
+              <p><b>Mit tegyen?</b> Egy gyors akkumulátor- és töltésméréssel kiderül, melyik a hibás – még mielőtt egy reggel végleg nem indul.</p>
+            </div>
+          </article>
+          <article class="sym" data-level="3">
+            <h3 class="sym__head"><button class="sym__toggle" type="button" aria-expanded="false" aria-controls="t11"><i class="dot dot--3"></i>Füstöl a kipufogó</button></h3>
+            <div class="sym__body" id="t11">
+              <p class="sym__title">Füstöl a kipufogó</p>
+              <p><b>Mi lehet?</b> <b>Kékes</b> füst: olajat éget a motor (szelepszár-szimeringek, dugattyúgyűrűk, turbó). <b>Sűrű fehér</b>, édeskés szagú füst: hűtőfolyadék jut az égéstérbe, hengerfejtömítés-hiba gyanúja. <b>Fekete</b> füst: túl dús keverék – befecskendező, légellátás, turbó. Hidegindítás után a rövid ideig tartó, gyorsan eltűnő fehér pára normális.</p>
+              <p><b>Mit tegyen?</b> Sűrű fehér füstnél és fogyó hűtőfolyadéknál ne használja tovább az autót – hívjon minket.</p>
+            </div>
+          </article>
+          <article class="sym" data-level="2">
+            <h3 class="sym__head"><button class="sym__toggle" type="button" aria-expanded="false" aria-controls="t12"><i class="dot dot--2"></i>Folt van az autó alatt</button></h3>
+            <div class="sym__body" id="t12">
+              <p class="sym__title">Folt van az autó alatt</p>
+              <p><b>Mi lehet?</b> A színe elárulja. Barna vagy fekete: motorolaj. Zöld, rózsaszín, narancs vagy kék: hűtőfolyadék. Vöröses: automataváltó- vagy szervoolaj. Nyáron, klímahasználat után a tiszta víz normális.</p>
+              <p><b>Mit tegyen?</b> Fotózza le a foltot, és nézze meg a szinteket. Ha a folt olajos tapintású és valamelyik kerék közelében van, fékfolyadék is lehet – ilyenkor ne induljon el.</p>
+            </div>
+          </article>
+          <article class="sym" data-level="1">
+            <h3 class="sym__head"><button class="sym__toggle" type="button" aria-expanded="false" aria-controls="t13"><i class="dot dot--1"></i>Közeleg a műszaki vizsga</button></h3>
+            <div class="sym__body" id="t13">
+              <p class="sym__title">Közeleg a műszaki vizsga</p>
+              <p><b>Mit nézünk meg?</b> Fékhatás, futómű-holtjátékok, gumik, világítás, kipufogó és károsanyag-kibocsátás, hibakódok, szivárgások.</p>
+              <p><b>Mit tegyen?</b> Hozza el pár héttel a vizsga előtt: így marad idő a javításra, és nem a vizsgán derül ki a hiba.</p>
+            </div>
+          </article>
+        </div>
 
-          <!-- Tünetek: új tünethez másolj le egy <article class="sym"> blokkot.
-               data-level: 1 = ráér, 2 = ne halogasd, 3 = azonnal -->
-          <div class="diag__panels">
-            <article class="sym" id="t-fek-nyikorog" data-level="2" data-service="Fékrendszer">
-              <h3 class="sym__title">Nyikorog, csikorog fékezéskor</h3>
-              <p class="sym__cause"><b>Valószínű ok:</b> elkopott fékbetét – sok betétben kopásjelző van, ami éppen ilyen hanggal szól. Ritkábban szennyeződés vagy rozsdás tárcsa.</p>
-              <p class="sym__tip"><b>Mit tegyél:</b> ne halogasd sokáig. Ha fémes csiszolást hallasz, a betét már a tárcsát eszi – ilyenkor azonnal hozd.</p>
-            </article>
-            <article class="sym" id="t-kormany-rezeg" data-level="2" data-service="Fékrendszer">
-              <h3 class="sym__title">Rezeg a kormány fékezéskor</h3>
-              <p class="sym__cause"><b>Valószínű ok:</b> egyenetlenül kopott, „vetemedett” féktárcsa. Menet közbeni rezgésnél kiegyensúlyozatlan kerék vagy futóműhiba is lehet.</p>
-              <p class="sym__tip"><b>Mit tegyél:</b> a fékút hosszabb lehet, ezért néhány napon belül nézesd meg.</p>
-            </article>
-            <article class="sym" id="t-huz" data-level="2" data-service="Futómű">
-              <h3 class="sym__title">Húz egy irányba az autó</h3>
-              <p class="sym__cause"><b>Valószínű ok:</b> elállítódott futómű-geometria, eltérő guminyomás, vagy egy beragadó féknyereg.</p>
-              <p class="sym__tip"><b>Mit tegyél:</b> először ellenőrizd a guminyomást. Ha az rendben van, hozd el – a rossz geometria gyorsan eszi a gumit.</p>
-            </article>
-            <article class="sym" id="t-kopog" data-level="2" data-service="Futómű">
-              <h3 class="sym__title">Kopog, zörög úthibán</h3>
-              <p class="sym__cause"><b>Valószínű ok:</b> kopott stabilizátor-pálca, lengőkar-szilent, gömbfej vagy lengéscsillapító.</p>
-              <p class="sym__tip"><b>Mit tegyél:</b> ne várd meg, amíg rosszabb lesz: egy laza futóműelem a kormányzást és a fékezést is rontja.</p>
-            </article>
-            <article class="sym" id="t-motorlampa" data-level="2" data-service="Motor &amp; diagnosztika">
-              <h3 class="sym__title">Kigyulladt a motorhiba-lámpa</h3>
-              <p class="sym__cause"><b>Valószínű ok:</b> sokféle lehet – gyújtás, érzékelő, üzemanyag-ellátás, kipufogórendszer. A hibakód-olvasás gyorsan leszűkíti.</p>
-              <p class="sym__tip"><b>Mit tegyél:</b> ha folyamatosan világít, hozd el a napokban. <b>Ha villog</b>, gyújtáskimaradás lehet: ne terheld a motort, és hívj minket.</p>
-            </article>
-            <article class="sym" id="t-indul" data-level="2" data-service="Motor &amp; diagnosztika">
-              <h3 class="sym__title">Nehezen indul</h3>
-              <p class="sym__cause"><b>Valószínű ok:</b> gyengülő akkumulátor, ritkábban generátor- vagy önindítóhiba. Hidegben hamarabb előjön.</p>
-              <p class="sym__tip"><b>Mit tegyél:</b> egy gyors mérés megmutatja, melyik a hibás – mielőtt egy reggel végleg nem indul.</p>
-            </article>
-            <article class="sym" id="t-fust" data-level="3" data-service="Motor &amp; diagnosztika">
-              <h3 class="sym__title">Füstöl a kipufogó</h3>
-              <p class="sym__cause"><b>Valószínű ok:</b> <b>kékes</b> füst – olajat éget; <b>sűrű fehér</b>, édeskés szagú – hűtőfolyadék jut az égéstérbe; <b>fekete</b> – túl dús keverék (befecskendezés, légellátás, turbó).</p>
-              <p class="sym__tip"><b>Mit tegyél:</b> sűrű fehér füstnél és csökkenő hűtővíznél ne használd az autót – hívj minket.</p>
-            </article>
-            <article class="sym" id="t-folt" data-level="2" data-service="Teljes körű átvizsgálás">
-              <h3 class="sym__title">Folt van az autó alatt</h3>
-              <p class="sym__cause"><b>Valószínű ok:</b> a színe elárulja – barna/fekete: motorolaj; zöld, kék vagy rózsaszín: hűtőfolyadék; vöröses: váltó- vagy szervoolaj. Nyáron a tiszta víz a klímából normális.</p>
-              <p class="sym__tip"><b>Mit tegyél:</b> fotózd le a foltot, és nézd meg a szinteket. Fékfolyadék-szivárgásnál (olajos, a kerék közelében) ne indulj el.</p>
-            </article>
-            <article class="sym" id="t-vizsga" data-level="1" data-service="Műszaki vizsgára felkészítés">
-              <h3 class="sym__title">Közeleg a műszaki vizsga</h3>
-              <p class="sym__cause"><b>Mit nézünk:</b> fékek, futómű, világítás, kipufogó és károsanyag-kibocsátás, gumik, hibakódok.</p>
-              <p class="sym__tip"><b>Mit tegyél:</b> hozd el pár héttel előtte – így marad idő a javításra, és nem a vizsgán derül ki a hiba.</p>
-            </article>
-          </div>
-
-          <div class="diag__meter" data-diag-meter hidden>
-            <p class="diag__label">Sürgősség</p>
-            <div class="meter" aria-hidden="true"><span></span><span></span><span></span></div>
-            <p class="diag__level" data-diag-level></p>
-            <a class="btn btn--accent btn--block" href="#idopont" data-diag-book>Időpontot kérek erre</a>
-          </div>
+        <div class="diag__cta" data-reveal>
+          <p>Nem találja a tünetét, vagy bizonytalan? Írja le telefonon, mit tapasztal – megmondjuk, mennyire sürgős.</p>
+          <a class="btn btn--accent" href="tel:+36203226614" data-phone-link><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg><span data-phone-text>+36 20 322 6614</span></a>
         </div>
       </div>
     </section>
@@ -342,10 +457,10 @@
         <div class="rating__quotes">
           <p class="rating__intro" data-reveal>Amit a vendégeink újra és újra kiemelnek:</p>
           <ul class="themes">
-            <li data-reveal><b>Őszinte</b><span>Precíz, lelkiismeretes munka – becsületes árakkal, nyomásgyakorlás nélkül.</span></li>
-            <li data-reveal><b>Érthető</b><span>Gyorsan fogadnak, alaposan átnézik az autót, és elmagyarázzák a hibát, a javítás menetét és a várható költséget.</span></li>
+            <li data-reveal><b>Őszinte</b><span>Precíz, lelkiismeretes munka, korrekt árak – nyomásgyakorlás nélkül.</span></li>
+            <li data-reveal><b>Érthető</b><span>Gyors fogadás, alapos átvizsgálás, és világos magyarázat a hibáról, a javítás menetéről és a várható költségről.</span></li>
             <li data-reveal><b>Csak a szükséges</b><span>Mindig a valóban szükséges és gazdaságos megoldást keresik.</span></li>
-            <li data-reveal><b>Rugalmas</b><span>Segítőkész kommunikáció – sürgős esetben szombaton is megoldották a javítást.</span></li>
+            <li data-reveal><b>Rugalmas</b><span>Segítőkész hozzáállás – sürgős esetben szombaton is megoldották a javítást.</span></li>
             <li data-reveal><b>Tartós</b><span>Jól felszerelt műhely, pontos munka, megbízható és tartós eredmény.</span></li>
           </ul>
         </div>
@@ -358,69 +473,39 @@
       </div>
     </section>
 
-    <!-- ============ 05 IDŐPONTKÉRÉS ============ -->
+    <!-- ============ 05 IDŐPONT-EGYEZTETÉS (telefonon) ============ -->
     <section class="section" id="idopont">
-      <div class="wrap booking">
-        <header class="section__head booking__head" data-reveal>
-          <p class="eyebrow"><span class="num">05</span> Időpontkérés</p>
-          <h2 class="h2">Kérj<br><em>időpontot.</em></h2>
-          <p class="section__lead">A leggyorsabb, ha felhívsz. Ha most nem alkalmas, töltsd ki az űrlapot:
-            összeállítjuk belőle az üzenetet, és egy koppintással elküldheted SMS-ben.</p>
-          <a class="booking__phone" href="tel:+36203226614" data-phone-link>
-            <span class="eyebrow">Hívj minket</span>
-            <b data-phone-text>+36 20 322 6614</b>
-          </a>
-          <p class="booking__note" data-status-long>Hétfőtől péntekig 8:00–18:00, szombaton 8:00–14:00.</p>
-        </header>
+      <div class="wrap call">
+        <div class="call__main" data-reveal>
+          <p class="eyebrow"><span class="num">05</span> Időpont-egyeztetés</p>
+          <h2 class="h2">Egy hívás,<br><em>és megbeszéljük.</em></h2>
+          <p class="section__lead">Időpontot telefonon egyeztetünk. Így rögtön elmondhatja, mit tapasztal, mi pedig meg tudjuk mondani,
+            mennyi időre lesz szükség, és mikor érdemes hoznia az autót.</p>
 
-        <form class="form" data-booking novalidate>
-          <div class="field">
-            <label for="f-name">Neved</label>
-            <input id="f-name" name="name" autocomplete="name" required placeholder="Kovács Péter">
-          </div>
-          <div class="field">
-            <label for="f-car">Autó típusa és évjárata</label>
-            <input id="f-car" name="car" required placeholder="pl. Škoda Octavia, 2016">
-          </div>
-          <fieldset class="field field--chips">
-            <legend>Mire van szükség?</legend>
-            <div class="chips" data-service-chips>
-              <label><input type="checkbox" name="service" value="Teljes körű átvizsgálás"><span>Átvizsgálás</span></label>
-              <label><input type="checkbox" name="service" value="Motor &amp; diagnosztika"><span>Motor &amp; diagnosztika</span></label>
-              <label><input type="checkbox" name="service" value="Fékrendszer"><span>Fék</span></label>
-              <label><input type="checkbox" name="service" value="Futómű"><span>Futómű</span></label>
-              <label><input type="checkbox" name="service" value="Időszakos szerviz"><span>Szerviz</span></label>
-              <label><input type="checkbox" name="service" value="Műszaki vizsgára felkészítés"><span>Műszaki vizsga</span></label>
+          <div class="call__card">
+            <p class="eyebrow">Hívjon minket</p>
+            <a class="call__number" href="tel:+36203226614" data-phone-link><span data-phone-text>+36 20 322 6614</span></a>
+            <p class="status status--big" data-status><span class="status__dot"></span><span data-status-text>H–P 8–18 · Szo 8–14</span></p>
+            <p class="call__hint">Hétfőtől péntekig 8:00–18:00, szombaton 8:00–14:00.</p>
+            <div class="call__actions">
+              <a class="btn btn--accent" href="tel:+36203226614" data-phone-link><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Hívás</a>
+              <button class="btn btn--ghost" type="button" data-copy-phone hidden>Szám másolása</button>
             </div>
-          </fieldset>
-          <div class="field">
-            <label for="f-when">Mikor lenne jó?</label>
-            <select id="f-when" name="when">
-              <option>Minél hamarabb</option>
-              <option>Ezen a héten</option>
-              <option>Jövő héten</option>
-              <option>Szombaton</option>
-              <option>Rugalmas vagyok</option>
-            </select>
           </div>
-          <div class="field field--wide">
-            <label for="f-msg">Mit tapasztalsz? <span class="opt">(nem kötelező)</span></label>
-            <textarea id="f-msg" name="msg" rows="3" placeholder="pl. fékezéskor csikorog az első kerék"></textarea>
-          </div>
-          <div class="form__out field--wide" data-booking-out hidden>
-            <p class="eyebrow">Az üzeneted</p>
-            <pre class="form__preview" data-booking-preview></pre>
-            <div class="form__actions">
-              <a class="btn btn--accent" href="#" data-booking-sms>Küldés SMS-ben</a>
-              <button class="btn btn--ghost" type="button" data-booking-copy>Szöveg másolása</button>
-            </div>
-            <p class="form__hint" data-booking-hint></p>
-          </div>
-          <div class="form__submit field--wide">
-            <button class="btn btn--accent btn--block" type="submit">Üzenet összeállítása <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-            <p class="form__small">Az űrlap semmit nem küld el magától és nem tárol adatot – az üzenetet te küldöd el a saját telefonodról.</p>
-          </div>
-        </form>
+        </div>
+
+        <div class="checklist" data-reveal>
+          <p class="eyebrow">Hogy gyorsabban menjen</p>
+          <h3 class="checklist__title">Mit érdemes kéznél tartani a hívásnál?</h3>
+          <ol class="checklist__list">
+            <li><b>Az autó adatai</b><span>Márka, típus, évjárat, és a motor: benzines vagy dízel, hány literes (pl. 1.6 TDI).</span></li>
+            <li><b>A forgalmi engedély</b><span>Az alvázszám alapján pontosan a megfelelő alkatrészt tudjuk előre rendelni.</span></li>
+            <li><b>Mit tapasztal, és mikor</b><span>Hidegen vagy melegen, fékezéskor, kanyarban, egy adott sebességnél? Minél pontosabb, annál gyorsabb a hibakeresés.</span></li>
+            <li><b>Figyelmeztető lámpák</b><span>Világít valami a műszerfalon? Ha teheti, fotózza le.</span></li>
+            <li><b>Előzmények</b><span>Mikor volt az utolsó szerviz, és mikor jár le a műszaki vizsga.</span></li>
+          </ol>
+          <p class="checklist__note">Ha épp a műhelyben dolgozunk, és nem tudjuk felvenni, kérjük, próbálja újra néhány perc múlva.</p>
+        </div>
       </div>
     </section>
 
@@ -446,8 +531,8 @@
           </table>
 
           <ul class="perks">
-            <li><svg class="i" aria-hidden="true"><use href="#i-park"/></svg> Ingyenes parkolás a saját parkolóban – a javításra váró autóknak is</li>
-            <li><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg> Hétvégén igény esetén megbeszélhető a munkavégzés</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-park"/></svg> Ingyenes parkolás a saját parkolóban – a javításra váró autóknak is. Az utcán fizetős.</li>
+            <li><svg class="i" aria-hidden="true"><use href="#i-clock"/></svg> Hétvégén, előre egyeztetve, nyitvatartáson kívül is megoldható a munka.</li>
           </ul>
 
           <div class="contact__actions">
@@ -464,7 +549,7 @@
               <path class="map__minor" d="M0 130 L400 95 M170 0 L205 300 M340 0 L380 300 M0 30 L400 0" />
             </svg>
             <span class="map__pin" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#blade"/></svg></span>
-            <span class="map__label">Térkép megjelenítése<small>Kattintásra betölti a Google Térképet</small></span>
+            <span class="map__label">Térkép megjelenítése<small>Koppintásra betölti a Google Térképet</small></span>
           </button>
         </div>
       </div>
@@ -486,9 +571,8 @@
 
   <!-- Telefonon mindig alul -->
   <nav class="dock" aria-label="Gyors elérés">
-    <a href="tel:+36203226614" data-phone-link><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Hívás</a>
     <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Penge%20GLC%20aut%C3%B3szerviz%2C%20Budapest%2C%20Dolm%C3%A1ny%20u.%207" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-route"/></svg>Útvonal</a>
-    <a class="dock__main" href="#idopont"><svg class="i" aria-hidden="true"><use href="#i-cal"/></svg>Időpont</a>
+    <a class="dock__main" href="tel:+36203226614" data-phone-link><svg class="i" aria-hidden="true"><use href="#i-phone"/></svg>Hívás</a>
   </nav>
 
   <!-- Ikonok -->
@@ -497,7 +581,6 @@
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></symbol>
     <symbol id="i-route" viewBox="0 0 24 24"><path d="M6 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm12-12a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM6 16V9a3 3 0 0 1 3-3h7M18 8v7a3 3 0 0 1-3 3H8" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
-    <symbol id="i-cal" viewBox="0 0 24 24"><path d="M4 6h16v14H4zM4 10h16M8 3v5m8-5v5" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
     <symbol id="i-park" viewBox="0 0 24 24"><path d="M4 3h16v18H4z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 17V7h4a3 3 0 0 1 0 6H9" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
     <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
     <symbol id="s-inspect" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="21" cy="21" r="12"/><path d="m30 30 12 12M15 21h12M21 15v12"/></g></symbol>
