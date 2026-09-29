@@ -1,0 +1,3 @@
+# Helyi Cloudflare-tesztek ideiglenes fájljai
+.wrangler/
+node_modules/
